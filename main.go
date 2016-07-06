@@ -9,7 +9,7 @@ import (
 
 func loadKeys() (pub, prv string, err error) {
 	var file ini.File
-	file, err = ini.LoadFile("keys.ini")
+	file, err = ini.LoadFile("../keys.ini")
 	if err != nil {
 		return
 	}
