@@ -2,7 +2,7 @@ package main
 
 import (
 	"errors"
-	//"fmt"
+	"fmt"
 
 	ini "github.com/vaughan0/go-ini"
 )
@@ -25,4 +25,8 @@ func loadKeys() (pub, prv string, err error) {
 		return
 	}
 	return
+}
+
+func main() {
+	fmt.Println("Running")
 }

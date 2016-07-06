@@ -24,11 +24,12 @@ func TestInit(t *testing.T) {
 	//channels := []string{"ok_btcusd_ticker", "ok_btcusd_depth"}
 	//err = api.Send(NewReq("ok_btcusd_ticker", true), NewReq("ok_btcusd_trades_v1", true))
 	assert.Nil(t, err)
-	err = api.Send(&ok.Req{"ok_btcusd_ticker", true, nil})
+	err = api.Send(&ok.Req{"ok_btccny_ticker", true, nil})
 	//err = api.AddChannel("ok_btcusd_trades_v1")"ok_btcusd_ticker", "ok_btcusd_depth"
 	assert.Nil(t, err)
 	i := 1
-	for i < 2 {
+	for i < 4 {
+		fmt.Println("TEST!")
 		ret, err := api.Read()
 		assert.Nil(t, err)
 		fmt.Println(string(ret))
@@ -36,12 +37,12 @@ func TestInit(t *testing.T) {
 
 	}
 
-	err = api.Send(ok.NewReq("ok_btcusd_deps", false))
+	err = api.Send(ok.NewReq("ok_btccny_deps", false))
 	assert.Nil(t, err)
 
-	//	err = api.Send(NewReq("ok_spotusd_userinfo", true))
-	//	assert.Nil(t, err)
-	//	ret, err := api.Read()
-	//	assert.Nil(t, err)
-	//	fmt.Println(string(ret))
+	err = api.Send(ok.NewReq("ok_spotcny_userinfo", true))
+	assert.Nil(t, err)
+	ret, err := api.Read()
+	assert.Nil(t, err)
+	fmt.Println(string(ret))
 }
